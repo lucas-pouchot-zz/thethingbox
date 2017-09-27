@@ -1,0 +1,795 @@
+<config>
+<moduleslist>
+	<Xmodule
+		name='sequence order list'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/src/Releases/Jessie/config/sequence_order_list.txt'
+		revision='24276'
+		target='order'
+		/>
+
+	<Xmodule
+		name='NodeRED'
+		svn='https://github.com/node-red/node-red.git/trunk'
+		revision='3278'
+		target='NodeRED\head'
+		/>
+
+	<module
+		name='install fresh jessie and nodejs'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/install fresh jessie and nodejs/release-2_0_0'
+		revision='24281'
+		target='patchs\install_fresh_jessie_and_nodejs'
+		/>
+
+	<module
+		name='install samba'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/install_samba/release-2_0_0'
+		revision='23538'
+		target='patchs\install_samba'
+		/>
+
+	<module
+		name='install mosquitto'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/Mosquitto/release-2_0_0'
+		revision='24260'
+		target='patchs\install_mosquitto'
+		/>
+
+	<module
+		name='network interfaces'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/network_interfaces/release-2_0_0'
+		revision='20894'
+		target='patchs\network_interfaces'
+		/>
+
+	<module
+		name='create thethingbox environment'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/createTTBenv/release-2_0_0/part1'
+		revision='24334'
+		target='patchs\create_thethingbox_environment'
+		/>
+
+	<module
+		name='node-red release like node-red-src'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/node-red release like node-red-src/release-2_0_0'
+		revision='24217'
+		target='patchs\node-red_release_like_node-red-src'
+		/>
+
+	<module
+		name='create thethingbox environment part2'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/createTTBenv/release-2_0_0/part2'
+		revision='21559'
+		target='patchs\create_thethingbox_environment_part2'
+		/>
+
+	<module
+		name='Add thethingbox service'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/AddService TheThingBox/release-2_0_0'
+		revision='23010'
+		target='patchs\AddService TheThingBox'
+		/>
+
+	<module
+		name='avahi'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/avahi'
+		revision='21342'
+		target='patchs\avahi'
+		/>
+
+	<module
+		name='wifi-util'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/wifi-util'
+		revision='23593'
+		target='patchs\wifi-util'
+		/>
+
+	<module
+		name='NodeFactory'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/NodeFactory/release-2_0_0'
+		revision='24218'
+		target='patchs\NodeFactory'
+		/>
+
+	<module
+		name='nisutil'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/nisutil'
+		revision='24305'
+		target='patchs\nisutil'
+		/>
+
+	<module
+		name='rsync'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/rsync/release-2_0_0'
+		revision='23538'
+		target='patchs\rsync'
+		/>
+
+	<module
+		name='Flow-User'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/Flow-User'
+		revision='20154'
+		target='patchs\Flow-User'
+		/>
+
+	<module
+		name='ntpdate'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/ntpdate'
+		revision='20754'
+		target='patchs\ntpdate'
+		/>
+
+	<module
+		name='Cacher les nodes de categorie system'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/Cacher les nodes de categorie system/release-2_0_0'
+		revision='24219'
+		target='patchs\Cacher les nodes de categorie system'
+		/>
+
+	<module
+		name='ChangeIndex.html'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/Change Index.html/release-2_0_0'
+		revision='24220'
+		target='patchs\Change Index.html'
+		/>
+
+	<module
+		name='WindowTitle'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/WindowTitle/release-2_0_0'
+		revision='20972'
+		target='patchs\WindowTitle'
+		/>
+
+	<module
+		name='Port 80'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/Port 80/release-2_0_0'
+		revision='21213'
+		target='patchs\Port 80'
+		/>
+
+	<module
+		name='Flow-System'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/Flow-System/release-2_0_0'
+		revision='24465'
+		target='patchs\Flow-System'
+		/>
+
+	<module
+		name='Hide system tab'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/Hide system tab/release-2_0_0'
+		revision='20978'
+		target='patchs\Hide system tab'
+		/>
+
+	<module
+		name='MultiSourceFlow'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/MultiSourceFlow/release-2_0_0'
+		revision='24224'
+		target='patchs\MultiSourceFlow'
+		/>
+
+	<module
+		name='add system properties to node'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/add system properties to node/release-2_0_0'
+		revision='24229'
+		target='patchs\add system properties to node'
+		/>
+
+	<module
+		name='NodeInstall'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/NodeInstall/release-2_0_0'
+		revision='24461'
+		target='patchs\NodeInstall'
+		/>
+
+	<module
+		name='ServerTimeout'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/ServerTimeout/release-2_0_0'
+		revision='23507'
+		target='patchs\ServerTimeout'
+		/>
+
+	<module
+		name='ChooseLanguage'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/ChooseLanguage/release-2_0_0'
+		revision='24233'
+		target='patchs\ChooseLanguage'
+		/>
+
+	<module
+		name='factoryReset'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/factoryReset/release-2_0_0'
+		revision='21358'
+		target='patchs\factoryReset'
+		/>
+
+	<module
+		name='AutoExpand'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/AutoExpand/release-2_0_0'
+		revision='22923'
+		target='patchs\AutoExpand'
+		/>
+
+	<module
+		name='install imagemagick'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TimesquAir/Patchs/install imagemagick'
+		revision='19957'
+		target='patchs\install imagemagick'
+		/>
+
+	<module
+		name='LEDMatrix'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/LEDMatrix/after'
+		revision='24333'
+		target='patchs\LEDMatrix'
+		/>
+
+	<module
+		name='flow RSA request on TimeSquAir api'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/flow RSA request on TimeSquAir api'
+		revision='21347'
+		target='patchs\flow RSA request on TimeSquAir api'
+		/>
+
+	<module
+		name='add CGU'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TimesquAir/Patchs/add CGU/release-2_0_0'
+		revision='24241'
+		target='patchs\add CGU'
+		/>
+
+	<module
+		name='FlowTTB'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TimesquAir/Patchs/FlowTTB/release-2_0_0'
+		revision='23541'
+		target='patchs\FlowTTB'
+		/>
+
+	<module
+		name='ttb-node-avahi-browse'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-avahi-browse'
+		revision='20785'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-avahi-browse'
+		/>
+
+	<module
+		name='ttb-node-boxip'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-boxip'
+		revision='23399'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-boxip'
+		/>
+
+	<module
+		name='ttb-node-boxname'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-boxname'
+		revision='20651'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-boxname'
+		/>
+
+	<module
+		name='ttb-node-file-function'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-file-function/release'
+		revision='20695'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-file-function'
+		/>
+
+	<module
+		name='ttb-node-carriots'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-carriots/Release'
+		revision='19767'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-carriots'
+		/>
+
+	<module
+		name='ttb-node-color'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-color'
+		revision='20638'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-color'
+		/>
+
+	<module
+		name='ttb-node-city'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-city'
+		revision='22601'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-city'
+		/>
+
+	<module
+		name='ttb-node-currentwifi'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-currentwifi/release'
+		revision='19082'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-currentwifi'
+		/>
+
+	<module
+		name='ttb-node-dateformat'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/ttb-node-dateformat'
+		revision='19830'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-dateformat'
+		/>
+
+	<module
+		name='ttb-node-display'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-display/release'
+		revision='21083'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-display'
+		/>
+
+	<module
+		name='ttb-node-distance'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-distance/release'
+		revision='19778'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-distance'
+		/>
+
+	<module
+		name='ttb-node-ejs'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-ejs/release'
+		revision='23498'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-ejs'
+		/>
+
+	<module
+		name='ttb-node-evrythng'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-evrythng/Release'
+		revision='19778'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-evrythng'
+		/>
+
+	<module
+		name='ttb-node-exosite'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-exosite'
+		revision='22197'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-exosite'
+		/>
+
+	<module
+		name='ttb-node-factorynode'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/NodeFactory2/after2/node_modules/node-red/node_modules'
+		revision='19827'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-factorynode'
+		/>
+
+	<module
+		name='ttb-node-file-ejs'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-file-ejs/release'
+		revision='23498'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-file-ejs'
+		/>
+
+	<module
+		name='ttb-node-go'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-go/release'
+		revision='21197'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-go'
+		/>
+
+	<module
+		name='ttb-node-google-auth'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-google-auth/release'
+		revision='19922'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-google-auth'
+		/>
+
+	<module
+		name='ttb-node-google-calendar'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-google-calendar/release'
+		revision='19923'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-google-calendar'
+		/>
+
+	<module
+		name='ttb-node-hivemq'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-hivemq'
+		revision='22198'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-hivemq'
+		/>
+
+	<module
+		name='ttb-node-info'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-info/release'
+		revision='23876'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-info'
+		/>
+
+	<module
+		name='ttb-node-intensity'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-intensity'
+		revision='22821'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-intensity'
+		/>
+
+	<module
+		name='ttb-node-intents'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-intents'
+		revision='24332'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-intents'
+		/>
+
+	<module
+		name='ttb-node-interfaces'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-interfaces'
+		revision='19778'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-interfaces'
+		/>
+
+	<module
+		name='ttb-node-queueuser'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-queueuser/release'
+		revision='23567'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-queueuser'
+		/>
+
+	<module
+		name='ttb-node-screader'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/NFC-USB/after/thethingbox/node_modules/node-red/node_modules/ttb-node-screader'
+		revision='24365'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-screader'
+		/>
+
+	<module
+		name='ttb-node-set'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-set/release'
+		revision='19778'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-set'
+		/>
+
+	<module
+		name='ttb-node-thingspeak'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-thingspeak'
+		revision='22200'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-thingspeak'
+		/>
+
+	<module
+		name='ttb-node-timestamp'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-timestamp/release'
+		revision='19778'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-timestamp'
+		/>
+
+	<module
+		name='ttb-node-tinamous'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-tinamous/release'
+		revision='19778'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-tinamous'
+		/>
+
+	<module
+		name='ttb-node-TSA_font'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-TSA_font'
+		revision='22194'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-TSA_font'
+		/>
+
+	<module
+		name='ttb-node-TSA_speed'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-TSA_speed'
+		revision='22195'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-TSA_speed'
+		/>
+
+	<module
+		name='ttb-node-TSA_textsize'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-TSA_textsize'
+		revision='22196'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-TSA_textsize'
+		/>
+
+	<module
+		name='ttb-node-wifilist'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-wifilist/release'
+		revision='19778'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-wifilist'
+		/>
+
+	<module
+		name='ttb-node-xively'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-xively/Release'
+		revision='19778'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-xively'
+		/>
+
+	<module
+		name='ttb-node-xively-mqtt'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-xively-mqtt'
+		revision='22201'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-xively-mqtt'
+		/>
+
+	<module
+		name='ttb-npm'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-npm'
+		revision='22192'
+		target='Nodes-TTB\node-red\node_modules\ttb-npm'
+		/>
+
+	<module
+		name='ttb-node-function'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/ttb-node-function'
+		revision='24249'
+		target='patchs\ttb-node-function'
+		/>
+
+	<module
+		name='ttb-node-meteo'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-meteo'
+		revision='23527'
+		target='patchs\ttb-node-meteo'
+		/>
+
+	<module
+		name='ttb-node-serialport'
+		svn='https://github.com/TheThingBox/ttb-node-serialport.git/trunk'
+		revision='10'
+		target='patchs\ttb-node-serialport'
+		/>
+
+	<module
+		name='ttb-node-sound'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/Sound'
+		revision='21689'
+		target='patchs\Sound'
+		/>
+
+	<module
+		name='ttb-node-volume'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/Volume'
+		revision='19405'
+		target='patchs\Volume'
+		/>
+
+	<module
+		name='node-red-contrib-eddystone'
+		svn='https://github.com/matboehmer/node-red-contrib-eddystone.git/trunk'
+		revision='20'
+		target='patchs\node-red-contrib-eddystone'
+		/>
+
+	<module
+		name='TTB-Dependencies'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/TTB Dependencies'
+		revision='24252'
+		target='patchs\TTB Dependencies'
+		/>
+
+	<module
+		name='ttb-node-zip'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-zip'
+		revision='21012'
+		target='patchs\ttb-node-zip'
+		/>
+
+	<module
+		name='Palette'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/Palette/release-2_0_0/TTB'
+		revision='24254'
+		target='patchs\Palette'
+		/>
+
+	<module
+		name='ttb-node-notifyUI'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-notifyUI/release-2_0_0'
+		revision='21254'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-notifyUI'
+		/>
+
+	<module
+		name='Smooth'
+		svn='https://github.com/node-red/node-red-nodes/trunk/function/smooth'
+		revision='824'
+		target='Nodes-TTB\node-red\node_modules\node-red-node-smooth'
+		/>
+
+	<module
+		name='random'
+		svn='https://github.com/node-red/node-red-nodes/trunk/function/random'
+		revision='769'
+		target='Nodes-TTB\node-red\node_modules\random'
+		/>
+
+	<module
+		name='ursa'
+		svn='https://github.com/quartzjer/ursa.git/trunk'
+		revision='269'
+		target='Nodes-TTB\node-red\node_modules\ursa'
+		/>
+
+	<module
+		name='ejs'
+		svn='https://github.com/tj/ejs.git/trunk'
+		revision='253'
+		target='Nodes-TTB\node-red\node_modules\ejs'
+		/>
+
+	<module
+		name='node-red-contrib-splitter'
+		svn='https://github.com/coderofsalvation/node-red-contrib-splitter.git/trunk'
+		revision='17'
+		target='Nodes-TTB\node-red\node_modules\node-red-contrib-splitter'
+		/>
+
+	<module
+		name='arduino-firmdata'
+		svn='https://github.com/shokai/node-arduino-firmata.git/trunk'
+		revision='59'
+		target='Nodes-TTB\node-red\node_modules\arduino-firmdata'
+		/> <!-- v0.3.4 -->
+
+	<module
+		name='redis'
+		svn='https://github.com/mranney/node_redis.git/trunk'
+		revision='1555'
+		target='Nodes-TTB\node-red\node_modules\redis'
+		/> <!-- v2.7.1 -->
+
+	<module
+		name='util'
+		svn='https://github.com/defunctzombie/node-util.git/trunk'
+		revision='25'
+		target='Nodes-TTB\node-red\node_modules\util'
+		/> <!-- v0.10.3 -->
+
+	<Xmodule
+		name='crypto-js'
+		svn='https://github.com/brix/crypto-js.git/trunk'
+		revision='158'
+		target='Nodes-TTB\node-red\node_modules\crypto-js'
+		/> <!-- v3.1.6 -->
+
+	<module
+		name='node-hid'
+		svn='https://github.com/node-hid/node-hid.git/trunk'
+		revision='240'
+		target='Nodes-TTB\node-red\node_modules\node-hid'
+		/> <!-- v0.5.4 -->
+
+	<module
+		name='wiring-pi'
+		svn='https://github.com/eugeneware/wiring-pi.git/trunk'
+		revision='183'
+		target='Nodes-TTB\node-red\node_modules\wiring-pi'
+		/> <!-- v2.1.1 -->		
+
+	<module
+		name='set node js dynamically'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/set node js dynamically'
+		revision='21739'
+		target='patchs\set node js dynamically'
+		/>
+
+	<module
+		name='ttb-node-nfc'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/NFC-Effinov/release/ttb-node-nfc'
+		revision='23520'
+		target='patchs\ttb-node-nfc'
+		/>
+
+	<module
+		name='rsync backup'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/rsyncBackup'
+		revision='24234'
+		target='patchs\rsync backup'
+		/>
+
+	<module
+		name='rpi-rgb-led-matrix-master'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TimesquAir/Patchs/rpi-rgb-led-matrix-master'
+		revision='22609'
+		target='patchs\rpi-rgb-led-matrix-master'
+		/>
+
+	<module
+		name='addMysql'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/addMysql/release-2_0_0'
+		revision='23529'
+		target='patchs\addMysql'
+		/>
+
+	<module
+		name='addMongodb'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/addMongodb/release-2_0_0'
+		revision='24282'
+		target='patchs\addMongodb'
+		/>
+
+	<module
+		name='node-red-contrib-mongodb2'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/node-red-contrib-mongodb2/release'
+		revision='22703'
+		target='patchs\node-red-contrib-mongodb2'
+		/>
+
+	<module
+		name='fix mysql node deconnection'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/fix mysql node deconnection'
+		revision='23416'
+		target='patchs\fix mysql node deconnection'
+		/>
+
+	<module
+		name='handle server options'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/handle server options'
+		revision='24331'
+		target='patchs\handle server options'
+		/>
+
+	<module
+		name='fix mysql node deconnection'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/fix mysql node deconnection'
+		revision='23416'
+		target='patchs\fix mysql node deconnection'
+		/>
+
+	<module
+		name='hide mqtt deprecated'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/hide mqtt deprecated'
+		revision='23421'
+		target='patchs\hide mqtt deprecated'
+		/>
+
+	<module
+		name='hide unused config with node using it'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/hide unused config with node using it'
+		revision='23535'
+		target='patchs\hide unused config with node using it'
+		/>
+
+	<module
+		name='use key to cipher credentials'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/use key to cipher credentials'
+		revision='23536'
+		target='patchs\use key to cipher credentials'
+		/>
+
+	<module
+		name="rsync on system's flows"
+		svn="svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/rsync on system's flows"
+		revision='23539'
+		target="patchs\rsync on system's flows"
+		/>
+
+	<module
+		name='dynamic router'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/dynamicRouter'
+		revision='24255'
+		target='patchs\dynamic router'
+		/>
+
+	<module
+		name='add require as global'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/addRequireAsGlobal'
+		revision='24462'
+		target='patchs\add require as global'
+		/>
+
+	<module
+		name='params in user settings panel'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/paramsInUserSettingsPanel'
+		revision='24458'
+		target='patchs\params in user settings panel'
+		/>
+
+	<module
+		name='add shutdown button'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/addShutdownButton'
+		revision='24270'
+		target='patchs\add shutdown button'
+		/>
+
+	<module
+		name='ttb-node-writeFileSync'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/nodes/ttb-node-writeFileSync/release'
+		revision='24275'
+		target='Nodes-TTB\node-red\node_modules\ttb-node-writeFileSync'
+		/>
+
+	<module
+		name='try catch some nodes'
+		svn='svn://daw.digitalairways.com/digitalairways/Customers/Fundatrix/TheThingBox/Patchs/trycatchSomeNodes'
+		revision='24274'
+		target='patchs\try catch some nodes'
+		/>
+
+</moduleslist>
+</config>

@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Portal</title>
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/vendor/jquery/css/smoothness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" media="screen">
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/vendor/vendor.css" rel="stylesheet">
+    <link href="/red/style.min.css" rel="stylesheet">
+    <link href="/fonts/AvenirNextLTPro.css" rel="stylesheet" type="text/css">
+
+    <script src="/vendor/jquery/1.10.2.js"></script>
+    <script src="/vendor/vendor.js"></script>
+    <script src="/vendor/ace/ace.js"></script>
+    <script src="/vendor/ace/ext-language_tools.js"></script>
+    <script src="/red/i18n_Alone.js"></script>
+    <style>
+        html {
+            height: calc(100% - 40px);
+        }
+        body {
+            background-color: white;
+            padding-top: 40px;
+            font-family: 'Avenir Next LT Pro Regular', sans-serif !important;
+            font-weight: 25px;
+            color: rgb(150,150,150);
+        }
+        .navbar-fixed-top {
+            position: fixed !important;
+        }
+
+        .setting-board {
+            position: static;
+        }
+
+        .setting-edit-container {
+            padding: 0px;
+            margin: 23px auto;
+            width: 540px;
+        }
+
+        #settings-container {
+            overflow: auto;
+            background-color: white;
+            height: 100%;
+        }
+
+        .ui-button:active {
+            background-color: #8f8f8f;
+        }
+
+        #wifilist-ssid{
+            width: 70%;
+        }
+
+        #dialog{
+            display: block;
+            width: auto;
+            min-height: 26px;
+            max-height: none;
+            height: auto;
+        }
+
+        #button_submit[disabled]{
+            cursor: not-allowed;
+        }
+
+        #button_submit[disabled]:hover{
+            background-color: #f3f3f3;
+        }
+
+        #notif{
+            display: none;
+        }
+    </style>
+
+    <script>
+        var currentIP;
+        var redirectTimer;
+        var hostname;
+        var tout = 5000;
+
+        function getUserIP(onNewIP) {
+            //compatibility for firefox and chrome
+            var myPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
+            var pc = new myPeerConnection({
+                iceServers: []
+            }),
+            noop = function() {},
+            localIPs = {},
+            ipRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g,
+            key;
+
+            function iterateIP(ip) {
+                if (!localIPs[ip]) onNewIP(ip);
+                localIPs[ip] = true;
+            }
+
+            //create a bogus data channel
+            pc.createDataChannel("");
+
+            // create offer and set local description
+            pc.createOffer().then(function(sdp) {
+                sdp.sdp.split('\n').forEach(function(line) {
+                    if (line.indexOf('candidate') < 0) return;
+                    line.match(ipRegex).forEach(iterateIP);
+                });
+
+                pc.setLocalDescription(sdp, noop, noop);
+            }).catch(function(reason) {
+                // An error occurred, so handle the failure to connect
+            });
+
+            //listen for candidate events
+            pc.onicecandidate = function(ice) {
+                if (!ice || !ice.candidate || !ice.candidate.candidate || !ice.candidate.candidate.match(ipRegex)) return;
+                ice.candidate.candidate.match(ipRegex).forEach(iterateIP);
+            };
+        }
+
+        function tryToRedirectOnTTB(){
+            if(currentIP.indexOf("192.168.61.") == -1){
+                var url = "http://"+ hostname +"/";
+                redirectTimer = setTimeout(function(){
+                    $.ajax({
+                        url: url +"keepalive?url="+encodeURI(url),
+                        type: 'GET',
+                        timeout: tout
+                    }).done(function(data, textStatus, jqXHR){
+                        window.location.replace(url);
+                    }).fail(function(jqXHR, textStatus, errorThrown){
+                        tryToRedirectOnTTB();
+                    });
+                }, tout);
+            } else {
+                getUserIP(function(ip){
+                    currentIP = ip;
+                    redirectTimer = setTimeout(tryToRedirectOnTTB, tout);
+                })
+            }
+        }
+
+        function load(){
+            getUserIP(function(ip){
+                currentIP = ip;
+            })
+            disablePost();
+            $("#notif").hide();
+            if (RED._("settings.wifi.title") != "") {
+                $("#wifi_title").html(RED._("settings.wifi.title"));
+
+                $("#wifilist-container").load("wifilist");
+                $("#wifi_ssid").html(RED._("settings.wifi.ssid"));
+                $("#wifi_password").html(RED._("settings.wifi.password"));
+
+                $('#wifi-form').submit(function(event){
+                    disablePost();
+                    $("#notif").hide(500);
+                    $("#notif").html("");
+
+                    event.preventDefault();
+                    $('input[name="usingAJAX"]',this).val('true');
+                    $.ajax({
+                        url: $(this).attr('action'),
+                        data: $(this).serialize(),
+                        method: $(this).attr('method')
+                    }).done(function(data, textStatus, jqXHR){
+                        $("#notif").html(data.message);
+                        $("#notif").show(500);
+                        hostname = data.hostname;
+                        if(hostname){
+                            clearTimeout(redirectTimer);
+                            tryToRedirectOnTTB();
+                        }
+                    }).fail(function(jqXHR, textStatus, errorThrown){
+                        console.log(jqXHR);
+                        $("#notif").html(jqXHR.responseJSON.message);
+                        $("#notif").show(500);
+                        enablePost();
+                    });
+                });
+
+                $('#wifilist-ssid').on("change", function(evt){
+                    var group = $(this.selectedOptions).closest('optgroup').prop('label');
+                    if(group == "open"){
+                        $("#wifilist-secured").val("false");
+                        $("#password").hide(500);
+                        enablePost();
+                    } else {
+                        $("#wifilist-secured").val("true");
+                        $("#password").show(500);
+                        onPwdChange();
+                    }
+                });
+
+                $("#wifilist-password").on("keyup", function() {
+                    onPwdChange();
+                });
+                $("#wifilist-password").on("change", function() {
+                    onPwdChange();
+                });
+            }
+            else {
+                setTimeout(load, 100);
+            }
+        }
+
+        function onPwdChange(){            
+            if($("#wifilist-password").val() == ""){
+                disablePost();
+            } else {
+                enablePost();
+            }
+        }
+        function enablePost(){
+            $("#button_submit").prop('disabled', false);
+        }
+
+        function disablePost(){
+            $("#button_submit").prop('disabled', true);
+        }
+    </script>
+</head>
+<body onload="load()">
+    <div id="navbar-container">
+        <div id="header">
+            <span class="logo">
+                <a target="_blank" href="http://thethingbox.io"><img src="/logo.png" style="height: 32px;"></a>
+            </span>
+        </div>
+    </div>
+
+    <div id="settings-container">
+        <div id="wifi-container" class="setting-edit-container">
+            <div aria-labelledby="ui-id-4" aria-describedby="dialog" role="dialog" tabindex="-1" class="setting-board ui-dialog ui-widget ui-widget-content">
+                <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
+                    <span class="ui-dialog-title" id="ui-id-4">
+                        <span id="wifi_title"></span>
+                    </span>
+                </div>
+                <div id="dialog" class="hide ui-dialog-content ui-widget-content">
+                    <form id="wifi-form" class="form-horizontal" action="/portal" method="POST">
+                        <div id="wifilist">    
+                            <div class="form-row">
+                                <label for="wifilist-ssid"><i class="icon-tag"></i>
+                                    <span id="wifi_ssid"></span>
+                                </label>
+                                <select id="wifilist-ssid" name="ssid" class="form-control">
+                                    <option name="none" selected="true"></option>                                    
+                                    <optgroup label="secured">
+                                    <% wifilist.secured.forEach(function(wifi) { %>
+                                        <option name="<%=wifi.essid%>"> <%=wifi.essid%></option>
+                                    <% }) %>
+                                    </optgroup>
+                                    <optgroup label="open">                                        
+                                    <% wifilist.open.forEach(function(wifi) { %>
+                                        <option name="<%=wifi.essid%>"> <%=wifi.essid%></option>
+                                    <% }) %>
+                                    </optgroup>
+                                </select>
+                                <input id="wifilist-secured" type="hidden" name="secured">
+                            </div>
+    
+                            <div class="form-row" id="password">
+                                <label for="wifilist-password"><i class="icon-lock"></i>
+                                    <span id="wifi_password"></span>
+                                </label>
+                                <input id="wifilist-password" type="text" name="password">
+                            </div>
+                        </div>
+
+                        <div id="notif" class="form-tips note"></div>
+                    </form>
+                </div>
+
+                <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                    <div class="ui-dialog-buttonset">
+                        <button id="button_submit" role="button" class="ui-button ui-state-default" type="submit" form="wifi-form" disabled>
+                            <span class="ui-button-text">OK</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        
+    </script>
+</body>
+</html>

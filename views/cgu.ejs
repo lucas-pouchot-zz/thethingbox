@@ -1,0 +1,558 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>CGU</title>
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/vendor/jquery/css/smoothness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendor/vendor.css">
+    <link rel="stylesheet" href="/red/style.min.css">
+    <link href="/fonts/AvenirNextLTPro.css" rel="stylesheet" type="text/css">
+    <style>
+        html {
+            height: calc(100% - 40px);
+        }
+        body {
+            background-color: white;
+            padding-top: 40px;
+            font-family: 'Avenir Next LT Pro Regular', sans-serif !important;
+            font-weight: 25px;
+            color: rgb(150,150,150);
+        }
+        .navbar-fixed-top {
+            position: fixed !important;
+        }
+        #cgu{
+            width: 720px;
+            height: 360px;
+            margin: auto;
+            margin-top: 80px;
+        }
+        #createAccount{
+            width: 720px;
+            height: 340px;
+            margin: auto;
+            margin-top: 80px;
+        }
+        #changeName{
+            width: 720px;
+            height: 120px;
+            margin: auto;
+            margin-top: 80px;
+        }
+        .validate {
+            width: 720px;
+            margin: auto;
+            margin-top: 8px;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <script src="/async.js"></script>
+    <script src="/vendor/jquery/1.10.2.js"></script>
+    <script src="/vendor/vendor.js"></script>
+    <script src="/vendor/ace/ace.js"></script>
+    <script src="/vendor/ace/ext-language_tools.js"></script>
+    <script src="/red/i18n_Alone.js"></script>
+
+    <div id="navbar-container">
+        <div id="header">
+            <span class="logo">
+                <a target="_blank" href="http://thethingbox.io"><img src="/logo.png" style="height: 32px;"></a>    
+            </span>
+        </div>
+    </div>
+    <div id="settings-container">
+        <div id="page1" >
+            <div id="cgu" class="setting-edit-container" style="border:1px solid #aaa;">
+                <iframe id="cguIFrame" width="100%" height="100%" marginheight="0px" marginwidth="0px" frameBorder="0px">                    
+                </iframe>
+            </div>
+            <div class="validate">
+                <label style="float:left;">
+                  <input type="checkbox" id="CGUAccepted" style='margin:0px'><span id="acceptCGU"></span>
+                </label>
+                <button id="buttonNext" type="button" class="btn btn-default" style="float:right;" ></button>
+            </div>
+        </div>
+        <div id="page2" class="hide"> 
+            <div id="createAccount" class="setting-edit-container" style="border:1px solid #aaa;padding:16px">
+                <form id="account-form" class="form-horizontal">			                
+                    <p><h2><span id="title"></span></h2></p>       
+                    <p><span id="infos1"></span></p>
+                    <p><span id="infos2"></span></p><br/>
+                    
+                    <div id="change-account-container">
+                        <div class="form-row">
+                            <label style="width:43%;" for="change-account-input-email"><i class="icon-tag"></i><span id="mail"></span></label>
+                            <input style="width:53%;" id="change-account-input-email" type="text" name="email">
+                        </div>
+                        <div class="form-row">
+                            <label style="width:43%;" for="change-account-input-pwd"><i class="icon-tag"></i><span id="password"></span></label>
+                            <input style="width:53%;" id="change-account-input-pwd" type="password" name="pwd">
+                        </div>
+                        <div class="form-row">
+                            <label style="width:43%;" for="change-account-input-pwd2"><i class="icon-tag"></i><span id="confirmPassword"> Mot de passe (confirmation)</span></label>
+                            <input style="width:53%;" id="change-account-input-pwd2" type="password" name="pwd2">
+                        </div>
+                        <div class="form-row">
+                            <label style="width:43%;" for="change-account-input-tsa_name"><i class="icon-tag"></i><span id="TSAName"></span></label>
+                            <input style="width:53%;" id="change-account-input-tsa_name" type="text" name="tsa_name">
+                        </div>
+                        <input id="change-account-input-ttb_id" type="hidden" name="id">
+                    </div>
+                </form>
+                <div class="tips" style="display:none;" >
+                    <b style="color:red;"><span class="i18nWarning">Attention</span></b> : 
+                    <span class="tipsNewAdd" style="display:inline;" id="newHostnameTips"></span>
+                    <span style="text-decoration: underline;"><a class="linkNewN" target="_blank" href="http://thethingbox.local">http://<span class="newN">thethingbox</span>.local/</a></span>
+                    <span class="tipsAddUsed" style="display:none;" id="alreadyHostnameUsed"></span>
+                </div>
+                <div id="ttb-account"></div>   
+            </div> 
+            <div class="validate" style="margin-top:40px;">
+                <button id="buttonPrevious" type="button" class="btn btn-default btn-previous" style="float:left;"></button>
+                <button id="account-submit" type="button" class="btn btn-default false_pwd" style="float:right;" ></button>
+            </div>       
+        </div>
+        <div id="page2NotConnected" class="hide">
+            <div id="changeName" class="setting-edit-container" style="border:1px solid #aaa;padding:16px">
+                <form id="name-form" class="form-horizontal">
+                    <p><span id="infos1NotConnected"></span></p><br/>
+                    <div id="change-name-container">
+                        <div class="form-row">
+                            <label style="width:43%;" for="change-account-input-tsa_name2"><i class="icon-tag"></i><span id="TSANameNotConnected"></span></label>
+                            <input style="width:53%;" id="change-account-input-tsa_name2" type="text" name="tsa_name">
+                        </div>
+                    </div>
+                </form>
+                <div class="tips" style="display:none;" >
+                    <b style="color:red;"><span class="i18nWarning"></span></b> : 
+                    <span id="newHostnameTipsNotConnected" class="tipsNewAdd" style="display:inline;"></span>
+                    <span style="text-decoration: underline;"><a class="linkNewN" target="_blank" href="http://thethingbox.local">http://<span class="newN">thethingbox</span>.local/<a></span>
+                    <span id="alreadyHostnameUsedNotConnected" class="tipsAddUsed" style="display:none;"></span>
+                </div>
+            </div>
+            <div class="validate" style="margin-top:40px;">
+                <button id="buttonPreviousNotConnected" type="button" class="btn btn-default btn-previous" style="float:left;" ></button>
+                <button id="name-submit" type="button" class="btn btn-default false_pwd" style="float:right;" ></button>
+            </div>  
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var mailDoesntCorresponding = "";
+        var nameAlreadyUsedOnThisAccount = "";
+        var configWillBeUsed = "";
+        var youWillBeRedirected = "";
+
+        function init(){
+            var rebooting = false;
+            var scanAvahi = [];
+            var connected;
+            var flags = {CGUReaded:false};
+            $("#page2").hide();
+            $("#page2NotConnected").hide();
+            $('#CGUAccepted').attr('checked', false);
+            
+            $("#buttonNext").button({ disabled: true });
+            $("#CGUAccepted").change(function() {
+                if ($(this).is(':checked')){
+                    $( "#buttonNext" ).button({ disabled: false });
+                } else {
+                    $( "#buttonNext" ).button({ disabled: true });
+                }            
+            });
+            $("#buttonNext").click(function(){
+                $("#page1").hide();
+                flags.CGUReaded = "true";
+                if (connected){
+                    $("#page2").fadeIn('slow');
+                } else {
+                    $("#page2NotConnected").fadeIn('slow');
+                }
+            });
+            $(".btn-previous").click(function(){
+                $("#page2").hide();
+                $("#page2NotConnected").hide();
+                $("#page1").fadeIn('slow'); 
+            });
+            
+            $( ".false_pwd" ).button({ disabled: true });
+            $("#tips").hide();
+
+            function changeForFlagsAndConnect(){
+                if(flags.CGUReaded == "true") {
+                    $("#page1").hide();
+                    if (connected){
+                        $("#page2NotConnected").hide();
+                        $("#page2").show();
+                    } else {
+                        $("#page2").hide();
+                        $("#page2NotConnected").show();
+                    }
+                }
+            }
+
+            function redirect(url){
+                var ua        = navigator.userAgent.toLowerCase(),
+                    isIE      = ua.indexOf('msie') !== -1,
+                    version   = parseInt(ua.substr(4, 2), 10);
+
+                // Internet Explorer 8 and lower
+                if (isIE && version < 9) {
+                    var link = document.createElement('a');
+                    link.href = url;
+                    document.body.appendChild(link);
+                    link.click();
+                }
+
+                // All other browsers
+                else { window.location.href = url; }
+            }
+
+            function refreshWhenReboot(newAddr){
+                $.ajax({
+                    url: newAddr + "keepalive?url="+newAddr,
+                    type: 'GET',
+                    success : function(code_html, statut){
+                        redirect(newAddr);
+                    },
+                    error : function(result, statut, error){
+                        setTimeout(refreshWhenReboot(newAddr),2000);
+                    }
+                });
+            }
+
+            $("#change-account-container").ready(function() {
+                $.ajax({
+                    url : '/cgu-flags',
+                    type : 'GET',
+                    success : function(data, statut){
+                        try {
+                            data = JSON.parse(data);
+                        }catch(e) {}
+                        flags = data;     
+
+                        $.ajax({
+                            url : '/cgu-connected',
+                            type : 'GET',
+                            timeout: 7000,
+                            success : function(data, statut){
+                                if (Number(data) == 200){
+                                    connected = true;
+                                } else {
+                                    connected = false;
+                                }                                 
+                                changeForFlagsAndConnect();
+                            },
+                            error: function(){
+                                connected = false;    
+                                changeForFlagsAndConnect();
+                            }
+                        });
+                    }
+                });
+                $.ajax({
+                    url : '/form/current-account',
+                    type : 'GET',
+                    dataType : 'html',
+                    success : function(data, statut){
+                        data = JSON.parse(data);
+                        $("#change-account-input-ttb_id").val(data.id);
+                    },
+                    error : function(result, statut, error){
+                        alert(error);
+                    }
+                });
+                $.ajax({
+                    url : '/avahi/scan',
+                    type : 'GET',
+                    success : function(data, statut){
+                        try {
+                            data = JSON.parse(data);
+                        }catch(e) {}
+                        scanAvahi = data;
+                    }
+                });
+            });
+
+            $("#account-submit").click(function(event){
+                var pwd         = $("#change-account-input-pwd").val();
+                var email       = $("#change-account-input-email").val();
+                var tsa_name    = $("#change-account-input-tsa_name").val();
+                var tsa_id      = $("#change-account-input-ttb_id").val()
+                var datas = {
+                    email       : email,
+                    pwd         : pwd,
+                    ttb_name    : tsa_name,
+                    uuid        : tsa_id
+                };
+
+                $.ajax({
+                    url : '/handle/change-hostname',            
+                    type : 'POST',
+                    data: {hostname:tsa_name} ,
+                    success : function(res, statut){
+                        $.ajax({
+                            url : '/form/account-id',
+                            type: 'POST',
+                            data: datas ,
+                            success : function(res, statut){
+                                if(res.code == 403){
+                                    $.ajax({
+                                        url : '/handle/change-hostname',
+                                        type : 'POST',
+                                        data: {hostname:"thethingbox"},
+                                        success : function(res, statut){
+                                            alert(mailDoesntCorresponding);
+                                            $("#change-account-input-pwd").val("");
+                                        }
+                                    });
+                                } else {
+                                    $.ajax({
+                                        url : '/cgu-flags',            
+                                        type : 'POST',
+                                        data: {CGUReaded:true,AccountCreated:true,AccountLater:false} ,
+                                        success : function(res, statut){
+                                            if (res.code == 304){
+                                                alert(nameAlreadyUsedOnThisAccount + tsa_name + ". " + configWillBeUsed);
+                                            }
+                                            rebooting = true;                       
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "/inject/reboot"
+                                            });
+                                            $( ".false_pwd" ).button({ disabled: true });
+                                            setTimeout(refreshWhenReboot("http://"+ tsa_name +".local/"),10000);
+                                            alert(youWillBeRedirected);
+                                        }
+                                    });
+                                }
+                            },
+                            error : function(result, statut, error){
+                                alert(error);
+                            }
+                        });
+                    },
+                    error : function(result, statut, error){
+                    }
+                });
+            });
+
+            $("#name-submit").click(function(event){ 
+                var tsa_name    = $("#change-account-input-tsa_name2").val();
+                $.ajax({
+                    url : '/cgu-flags',            
+                    type : 'POST',
+                    data: {CGUReaded:true,AccountCreated:false,AccountLater:true} ,
+                    success : function(res, statut){
+                        $.ajax({
+                            url : '/handle/change-hostname',            
+                            type : 'POST',
+                            data: {hostname:tsa_name} ,
+                            success : function(res, statut){
+                                rebooting = true;                       
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/inject/reboot"
+                                });
+                                $( ".false_pwd" ).button({ disabled: true });
+                                setTimeout(refreshWhenReboot("http://"+ tsa_name +".local/"),10000);
+                                alert(youWillBeRedirected);
+                            }
+                        });
+                    }
+                });
+            });
+
+            function setupIsOk(){
+                var mail = $("#change-account-input-email").val().trim();
+                var pwd  = $("#change-account-input-pwd").val();
+                var pwd2 = $("#change-account-input-pwd2").val();
+                var name = $("#change-account-input-tsa_name").val().trim();
+                var mailRegex = mail.match(/(^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$)/);
+                var hostnameRegex = name.match(/(^(?=.{1,255}$)[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?(?:\.[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?)*\.?$)/);
+                var retVal = true;
+                
+                // check if email is correct
+                if (mail == ""){
+                    retVal = false;
+                } else if(mailRegex == null || mailRegex.length == 0){
+                    $("#change-account-input-email").attr('style','width:53%;border-color:#ED143D;');
+                    retVal = false;
+                } else{
+                    $("#change-account-input-email").attr('style','width:53%;');
+                }
+                
+                    
+
+                // check if pasword is correct
+                if (!pwd || pwd.trim() === ""){
+                    retVal = false;
+                } else if (pwd !== pwd2){
+                    $("#change-account-input-pwd2").attr('style','width:53%;border-color:#ED143D;');
+                    retVal = false;
+                } else {
+                    $("#change-account-input-pwd2").attr('style','width:53%;');
+                }
+                
+
+                // check if hostname is correct
+                if(!name || name === ""){
+                    retVal = false;
+                } else if (hostnameRegex == null || hostnameRegex.length == 0 || name.toLowerCase() === "thethingbox" || scanAvahi.hasOwnProperty(name.toLowerCase()+".local")) {
+                    $("#change-account-input-tsa_name").attr('style','width:53%;border-color:#ED143D;');
+                    retVal = false;
+                } else {
+                    $("#change-account-input-tsa_name").attr('style','width:53%;');
+                }
+
+
+                return retVal;
+            }
+
+
+            function setupIsOkWithoutConnection (){            
+                var name = $("#change-account-input-tsa_name2").val().trim();
+                var hostnameRegex = name.match(/(^(?=.{1,255}$)[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?(?:\.[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?)*\.?$)/);            
+                var retVal = true;
+
+                // check if hostname is correct
+                if(!name || name === ""){
+                    retVal = false;
+                } else if (hostnameRegex == null || hostnameRegex.length == 0 || name.toLowerCase() === "thethingbox" || scanAvahi.hasOwnProperty(name.toLowerCase()+".local")) {
+                    $("#change-account-input-tsa_name2").attr('style','width:53%;border-color:#ED143D;');
+                    retVal = false;
+                } else {
+                    $("#change-account-input-tsa_name2").attr('style','width:53%;');
+                }
+
+                return retVal;
+            }
+
+            function tryToEnableValidation(co){
+                var isOk;
+                if (co){
+                    isOk = setupIsOk();
+                } else {
+                    isOk = setupIsOkWithoutConnection();
+                }
+                if(!isOk || rebooting){
+                    $( ".false_pwd" ).button({ disabled: true });
+                }
+                else{
+                    $( ".false_pwd" ).button({ disabled: false });
+                }
+            }
+
+            function updateTSAName(value){
+                if(value && value.trim() !== ""){                  
+                    $(".tips").show();         
+                    $(".newN").html(value);
+                    $(".linkNewN").attr("href", "http://"+value+".local");
+                    if (scanAvahi.hasOwnProperty(value+".local")){              
+                        $(".tipsNewAdd").css("display","none");
+                        $(".tipsAddUsed").css("display","inline");
+                    }else {                         
+                        $(".tipsNewAdd").css("display","inline");
+                        $(".tipsAddUsed").css("display","none");
+                    }
+                }
+                else {
+                    $(".tipsNewAdd").css("display","inline");
+                    $(".tipsAddUsed").css("display","none");
+                    $(".tips").hide();
+                }
+            }
+
+            $("#change-account-input-tsa_name").on("keyup", function() {
+                var value =  $("#change-account-input-tsa_name").val();
+                updateTSAName(value);
+                tryToEnableValidation(true);
+            });     
+
+            $("#change-account-input-tsa_name2").on("keyup", function() {
+                var value =  $("#change-account-input-tsa_name2").val();
+                updateTSAName(value);
+                tryToEnableValidation(false);
+            });
+
+            $("#change-account-input-tsa_name").on("change", function() {
+                var value =  $("#change-account-input-tsa_name").val();            
+                updateTSAName(value);
+                tryToEnableValidation(true);
+            });
+
+            $("#change-account-input-tsa_name2").on("change", function() {
+                var value =  $("#change-account-input-tsa_name2").val();            
+                updateTSAName(value);
+                tryToEnableValidation(false);
+            });
+
+            $("#change-account-input-email").on("keyup", function() {
+                tryToEnableValidation(true);
+            });
+            $("#change-account-input-email").on("change", function() {
+                tryToEnableValidation(true);
+            });
+
+            $("#change-account-input-pwd").on("keyup", function() {
+                tryToEnableValidation(true);
+            });
+            $("#change-account-input-pwd").on("change", function() {
+                tryToEnableValidation(true);
+            });
+
+            $("#change-account-input-pwd2").on("keyup", function() {
+                tryToEnableValidation(true);
+            });
+            $("#change-account-input-pwd2").on("change", function() {
+                tryToEnableValidation(true);
+            });
+        }
+    
+        $(document).ready(function(){
+            function waitNLS() {
+                if (RED._("cgu.url") != "") {          
+                    $("#cguIFrame").html(RED._("cgu.obsolete"));
+                    $('#cguIFrame').prop('src', RED._("cgu.url"));
+                    $("#acceptCGU").html(RED._("cgu.acceptCGU"));
+                    $("#buttonNext").html(RED._("cgu.next"));
+                    $("#buttonPrevious").html(RED._("cgu.previous"));
+                    $("#buttonPreviousNotConnected").html(RED._("cgu.previous"));
+                    $("#title").html(RED._("cgu.title"));
+                    $("#infos1").html(RED._("cgu.accountWillBeCreated"));
+                    $("#infos1NotConnected").html(RED._("cgu.notConnected"));
+                    $("#infos2").html(RED._("cgu.rename"));
+                    $("#mail").html(RED._("cgu.mail"));
+                    $("#password").html(RED._("cgu.password"));
+                    $("#confirmPassword").html(RED._("cgu.confirmPassword"));
+                    $("#TSAName").html(RED._("cgu.TSAName"));
+                    $("#TSANameNotConnected").html(RED._("cgu.TSAName"));
+                    $(".i18nWarning").html(RED._("cgu.warning"));
+                    $("#newHostnameTips").html(RED._("cgu.newHostnameTips"));
+                    $("#newHostnameTipsNotConnected").html(RED._("cgu.newHostnameTips"));
+                    $("#alreadyHostnameUsed").html(RED._("cgu.alreadyHostnameUsed"));
+                    $("#alreadyHostnameUsedNotConnected").html(RED._("cgu.alreadyHostnameUsed"));
+                    $("#account-submit").html(RED._("cgu.submit"));
+                    $("#name-submit").html(RED._("cgu.submit"));
+
+                    mailDoesntCorresponding = RED._("cgu.mailDoesntCorresponding");
+                    nameAlreadyUsedOnThisAccount = RED._("cgu.nameAlreadyUsedOnThisAccount");
+                    configWillBeUsed = RED._("cgu.configWillBeUsed");
+                    youWillBeRedirected = RED._("cgu.youWillBeRedirected");
+
+                    init();
+                }
+                else {
+                    setTimeout(waitNLS, 100);
+                }
+            }
+            waitNLS();
+        });
+    </script>
+</body>
+</html>
