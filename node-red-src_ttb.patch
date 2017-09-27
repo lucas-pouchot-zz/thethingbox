@@ -93,7 +93,7 @@ diff -ruN node-red-src/cgu/cgu.html node-red-src_ttb/cgu/cgu.html
 +<html>
 \ No newline at end of file
 diff -ruN node-red-src/CHANGELOG.md node-red-src_ttb/CHANGELOG.md
---- node-red-src/CHANGELOG.md	2017-09-27 10:53:14.548981752 +0000
+--- node-red-src/CHANGELOG.md	2017-09-27 12:15:27.147346942 +0000
 +++ node-red-src_ttb/CHANGELOG.md	2017-09-26 15:24:23.412402800 +0000
 @@ -10,7 +10,6 @@
   - Modify messages in node properties to refer messages.json (#1339)
@@ -1439,7 +1439,7 @@ diff -ruN node-red-src/editor/js/i18n_Alone.js node-red-src_ttb/editor/js/i18n_A
 +    }
 +})();
 diff -ruN node-red-src/editor/js/main.js node-red-src_ttb/editor/js/main.js
---- node-red-src/editor/js/main.js	2017-09-27 10:53:14.558981688 +0000
+--- node-red-src/editor/js/main.js	2017-09-27 12:15:27.157346878 +0000
 +++ node-red-src_ttb/editor/js/main.js	2017-09-26 15:24:24.388976000 +0000
 @@ -50,7 +50,7 @@
      function loadFlows() {
@@ -1555,7 +1555,7 @@ diff -ruN node-red-src/editor/js/main.js node-red-src_ttb/editor/js/main.js
          ace.require("ace/ext/language_tools");
  
 diff -ruN node-red-src/editor/js/nodes.js node-red-src_ttb/editor/js/nodes.js
---- node-red-src/editor/js/nodes.js	2017-09-27 10:53:14.568981624 +0000
+--- node-red-src/editor/js/nodes.js	2017-09-27 12:15:27.167346814 +0000
 +++ node-red-src_ttb/editor/js/nodes.js	2017-09-26 15:24:24.424155500 +0000
 @@ -41,15 +41,6 @@
          var typeToId = {};
@@ -1751,7 +1751,7 @@ diff -ruN node-red-src/editor/js/nodes.js node-red-src_ttb/editor/js/nodes.js
                      RED.editor.validateNode(node);
                      node_map[n.id] = node;
 diff -ruN node-red-src/editor/js/ui/clipboard.js node-red-src_ttb/editor/js/ui/clipboard.js
---- node-red-src/editor/js/ui/clipboard.js	2017-09-27 10:53:14.568981624 +0000
+--- node-red-src/editor/js/ui/clipboard.js	2017-09-27 12:15:27.167346814 +0000
 +++ node-red-src_ttb/editor/js/ui/clipboard.js	2017-09-26 15:24:25.382842700 +0000
 @@ -203,8 +203,7 @@
              var nodes = null;
@@ -1764,7 +1764,7 @@ diff -ruN node-red-src/editor/js/ui/clipboard.js node-red-src_ttb/editor/js/ui/c
                  var activeWorkspace = RED.workspaces.active();
                  nodes = RED.nodes.filterNodes({z:activeWorkspace});
 diff -ruN node-red-src/editor/js/ui/common/editableList.js node-red-src_ttb/editor/js/ui/common/editableList.js
---- node-red-src/editor/js/ui/common/editableList.js	2017-09-27 10:53:14.568981624 +0000
+--- node-red-src/editor/js/ui/common/editableList.js	2017-09-27 12:15:27.167346814 +0000
 +++ node-red-src_ttb/editor/js/ui/common/editableList.js	2017-09-26 15:24:24.969142700 +0000
 @@ -85,7 +85,7 @@
              if (this.element.css("position") === "absolute") {
@@ -1776,7 +1776,7 @@ diff -ruN node-red-src/editor/js/ui/common/editableList.js node-red-src_ttb/edit
                          that.uiContainer.css(s,"0");
                          that.element.css(s,'auto');
 diff -ruN node-red-src/editor/js/ui/common/tabs.js node-red-src_ttb/editor/js/ui/common/tabs.js
---- node-red-src/editor/js/ui/common/tabs.js	2017-09-27 10:53:14.568981624 +0000
+--- node-red-src/editor/js/ui/common/tabs.js	2017-09-27 12:15:27.167346814 +0000
 +++ node-red-src_ttb/editor/js/ui/common/tabs.js	2017-09-26 15:24:25.001499400 +0000
 @@ -327,6 +327,11 @@
                      })
@@ -1801,7 +1801,7 @@ diff -ruN node-red-src/editor/js/ui/common/tabs.js node-red-src_ttb/editor/js/ui
                  var tab = ul.find("a[href='#"+id+"']");
                  tab.attr("title",label);
 diff -ruN node-red-src/editor/js/ui/deploy.js node-red-src_ttb/editor/js/ui/deploy.js
---- node-red-src/editor/js/ui/deploy.js	2017-09-27 10:53:14.568981624 +0000
+--- node-red-src/editor/js/ui/deploy.js	2017-09-27 12:15:27.167346814 +0000
 +++ node-red-src_ttb/editor/js/ui/deploy.js	2017-09-26 15:24:25.352247500 +0000
 @@ -157,8 +157,8 @@
                  create: function() {
@@ -1824,7 +1824,7 @@ diff -ruN node-red-src/editor/js/ui/deploy.js node-red-src_ttb/editor/js/ui/depl
              var startTime = Date.now();
              $(".deploy-button-content").css('opacity',0);
 diff -ruN node-red-src/editor/js/ui/diff.js node-red-src_ttb/editor/js/ui/diff.js
---- node-red-src/editor/js/ui/diff.js	2017-09-27 10:53:14.578981560 +0000
+--- node-red-src/editor/js/ui/diff.js	2017-09-27 12:15:27.177346750 +0000
 +++ node-red-src_ttb/editor/js/ui/diff.js	2017-09-26 15:24:24.902789600 +0000
 @@ -1,26 +1,52 @@
  RED.diff = (function() {
@@ -2483,7 +2483,7 @@ diff -ruN node-red-src/editor/js/ui/diff.js node-red-src_ttb/editor/js/ui/diff.j
      return {
          init: init,
 diff -ruN node-red-src/editor/js/ui/editor.js node-red-src_ttb/editor/js/ui/editor.js
---- node-red-src/editor/js/ui/editor.js	2017-09-27 10:53:14.578981560 +0000
+--- node-red-src/editor/js/ui/editor.js	2017-09-27 12:15:27.177346750 +0000
 +++ node-red-src_ttb/editor/js/ui/editor.js	2017-09-26 15:24:25.327181200 +0000
 @@ -660,7 +660,7 @@
      function buildLabelRow(type, index, value, placeHolder) {
@@ -2495,7 +2495,7 @@ diff -ruN node-red-src/editor/js/ui/editor.js node-red-src_ttb/editor/js/ui/edit
          } else {
              result.addClass("");
 diff -ruN node-red-src/editor/js/ui/keyboard.js node-red-src_ttb/editor/js/ui/keyboard.js
---- node-red-src/editor/js/ui/keyboard.js	2017-09-27 10:53:14.578981560 +0000
+--- node-red-src/editor/js/ui/keyboard.js	2017-09-27 12:15:27.177346750 +0000
 +++ node-red-src_ttb/editor/js/ui/keyboard.js	2017-09-26 15:24:25.423455500 +0000
 @@ -89,7 +89,7 @@
  
@@ -2796,7 +2796,7 @@ diff -ruN node-red-src/editor/js/ui/npm.js node-red-src_ttb/editor/js/ui/npm.js
 +
 +})();
 diff -ruN node-red-src/editor/js/ui/palette-editor.js node-red-src_ttb/editor/js/ui/palette-editor.js
---- node-red-src/editor/js/ui/palette-editor.js	2017-09-27 10:53:14.578981560 +0000
+--- node-red-src/editor/js/ui/palette-editor.js	2017-09-27 12:15:27.177346750 +0000
 +++ node-red-src_ttb/editor/js/ui/palette-editor.js	2017-09-26 15:24:25.309586300 +0000
 @@ -423,7 +423,7 @@
  
@@ -2808,7 +2808,7 @@ diff -ruN node-red-src/editor/js/ui/palette-editor.js node-red-src_ttb/editor/js
              close: function() {
                  settingsPane.detach();
 diff -ruN node-red-src/editor/js/ui/palette.js node-red-src_ttb/editor/js/ui/palette.js
---- node-red-src/editor/js/ui/palette.js	2017-09-27 10:53:14.578981560 +0000
+--- node-red-src/editor/js/ui/palette.js	2017-09-27 12:15:27.177346750 +0000
 +++ node-red-src_ttb/editor/js/ui/palette.js	2017-09-26 15:24:25.369249400 +0000
 @@ -16,8 +16,8 @@
  
@@ -2845,7 +2845,7 @@ diff -ruN node-red-src/editor/js/ui/palette.js node-red-src_ttb/editor/js/ui/pal
  
          $("#palette-collapse-all").on("click", function(e) {
 diff -ruN node-red-src/editor/js/ui/search.js node-red-src_ttb/editor/js/ui/search.js
---- node-red-src/editor/js/ui/search.js	2017-09-27 10:53:14.578981560 +0000
+--- node-red-src/editor/js/ui/search.js	2017-09-27 12:15:27.177346750 +0000
 +++ node-red-src_ttb/editor/js/ui/search.js	2017-09-26 15:24:24.651205700 +0000
 @@ -125,7 +125,7 @@
      function createDialog() {
@@ -2865,7 +2865,7 @@ diff -ruN node-red-src/editor/js/ui/search.js node-red-src_ttb/editor/js/ui/sear
          var searchResultsDiv = $("<div>",{class:"red-ui-search-results-container"}).appendTo(dialog);
          searchResults = $('<ol>',{id:"search-result-list", style:"position: absolute;top: 5px;bottom: 5px;left: 5px;right: 5px;"}).appendTo(searchResultsDiv).editableList({
 diff -ruN node-red-src/editor/js/ui/tab-info.js node-red-src_ttb/editor/js/ui/tab-info.js
---- node-red-src/editor/js/ui/tab-info.js	2017-09-27 10:53:14.578981560 +0000
+--- node-red-src/editor/js/ui/tab-info.js	2017-09-27 12:15:27.177346750 +0000
 +++ node-red-src_ttb/editor/js/ui/tab-info.js	2017-09-26 15:24:25.396883200 +0000
 @@ -50,11 +50,11 @@
          }).hide();
@@ -2953,7 +2953,7 @@ diff -ruN node-red-src/editor/js/ui/thingboxSettings.js node-red-src_ttb/editor/
 +})();
 \ No newline at end of file
 diff -ruN node-red-src/editor/js/ui/tray.js node-red-src_ttb/editor/js/ui/tray.js
---- node-red-src/editor/js/ui/tray.js	2017-09-27 10:53:14.588981496 +0000
+--- node-red-src/editor/js/ui/tray.js	2017-09-27 12:15:27.187346686 +0000
 +++ node-red-src_ttb/editor/js/ui/tray.js	2017-09-26 15:24:25.264739600 +0000
 @@ -34,10 +34,6 @@
          if (options.title) {
@@ -2994,7 +2994,7 @@ diff -ruN node-red-src/editor/js/ui/tray.js node-red-src_ttb/editor/js/ui/tray.j
                  tray.tray.width(tray.width);
                  // tray.body.parent().width(tray.width);
 diff -ruN node-red-src/editor/js/ui/typeSearch.js node-red-src_ttb/editor/js/ui/typeSearch.js
---- node-red-src/editor/js/ui/typeSearch.js	2017-09-27 10:53:14.588981496 +0000
+--- node-red-src/editor/js/ui/typeSearch.js	2017-09-27 12:15:27.187346686 +0000
 +++ node-red-src_ttb/editor/js/ui/typeSearch.js	2017-09-26 15:24:24.664239200 +0000
 @@ -236,7 +236,7 @@
          var items = [];
@@ -3006,7 +3006,7 @@ diff -ruN node-red-src/editor/js/ui/typeSearch.js node-red-src_ttb/editor/js/ui/
              }
          });
 diff -ruN node-red-src/editor/js/ui/userSettings.js node-red-src_ttb/editor/js/ui/userSettings.js
---- node-red-src/editor/js/ui/userSettings.js	2017-09-27 10:53:14.588981496 +0000
+--- node-red-src/editor/js/ui/userSettings.js	2017-09-27 12:15:27.187346686 +0000
 +++ node-red-src_ttb/editor/js/ui/userSettings.js	2017-09-26 15:24:25.409417700 +0000
 @@ -33,9 +33,17 @@
          var tabContainer;
@@ -3071,7 +3071,7 @@ diff -ruN node-red-src/editor/js/ui/userSettings.js node-red-src_ttb/editor/js/u
              close: function() {
                  viewSettings.forEach(function(section) {
 diff -ruN node-red-src/editor/js/ui/utils.js node-red-src_ttb/editor/js/ui/utils.js
---- node-red-src/editor/js/ui/utils.js	2017-09-27 10:53:14.588981496 +0000
+--- node-red-src/editor/js/ui/utils.js	2017-09-27 12:15:27.187346686 +0000
 +++ node-red-src_ttb/editor/js/ui/utils.js	2017-09-26 15:24:25.440502400 +0000
 @@ -50,58 +50,24 @@
          }
@@ -3318,7 +3318,7 @@ diff -ruN node-red-src/editor/js/ui/utils.js node-red-src_ttb/editor/js/ui/utils
          var icon_url;
          if (typeof def.icon === "function") {
 diff -ruN node-red-src/editor/js/ui/workspaces.js node-red-src_ttb/editor/js/ui/workspaces.js
---- node-red-src/editor/js/ui/workspaces.js	2017-09-27 10:53:14.588981496 +0000
+--- node-red-src/editor/js/ui/workspaces.js	2017-09-27 12:15:27.187346686 +0000
 +++ node-red-src_ttb/editor/js/ui/workspaces.js	2017-09-26 15:24:25.279732300 +0000
 @@ -22,6 +22,14 @@
  
@@ -3345,7 +3345,7 @@ diff -ruN node-red-src/editor/js/ui/workspaces.js node-red-src_ttb/editor/js/ui/
              workspace_tabs.addTab(ws);
              workspace_tabs.activateTab(tabId);
 diff -ruN node-red-src/editor/js/user.js node-red-src_ttb/editor/js/user.js
---- node-red-src/editor/js/user.js	2017-09-27 10:53:14.588981496 +0000
+--- node-red-src/editor/js/user.js	2017-09-27 12:15:27.187346686 +0000
 +++ node-red-src_ttb/editor/js/user.js	2017-09-26 15:24:24.607373500 +0000
 @@ -50,7 +50,7 @@
                      for (;i<data.prompts.length;i++) {
@@ -3358,7 +3358,7 @@ diff -ruN node-red-src/editor/js/user.js node-red-src_ttb/editor/js/user.js
                          if (i<data.prompts.length-1) {
 Binary files node-red-src/editor/logo.png and node-red-src_ttb/editor/logo.png differ
 diff -ruN node-red-src/editor/sass/diff.scss node-red-src_ttb/editor/sass/diff.scss
---- node-red-src/editor/sass/diff.scss	2017-09-27 10:53:14.588981496 +0000
+--- node-red-src/editor/sass/diff.scss	2017-09-27 12:15:27.187346686 +0000
 +++ node-red-src_ttb/editor/sass/diff.scss	2017-09-26 15:24:23.889066300 +0000
 @@ -16,6 +16,8 @@
  
@@ -3537,7 +3537,7 @@ diff -ruN node-red-src/editor/sass/diff.scss node-red-src_ttb/editor/sass/diff.s
      white-space: nowrap;
      overflow: hidden;
 diff -ruN node-red-src/editor/sass/editor.scss node-red-src_ttb/editor/sass/editor.scss
---- node-red-src/editor/sass/editor.scss	2017-09-27 10:53:14.588981496 +0000
+--- node-red-src/editor/sass/editor.scss	2017-09-27 12:15:27.187346686 +0000
 +++ node-red-src_ttb/editor/sass/editor.scss	2017-09-26 15:24:23.908126900 +0000
 @@ -132,11 +132,6 @@
      cursor: col-resize;
@@ -3561,7 +3561,7 @@ diff -ruN node-red-src/editor/sass/editor.scss node-red-src_ttb/editor/sass/edit
  
  .editor-button {
 diff -ruN node-red-src/editor/sass/mixins.scss node-red-src_ttb/editor/sass/mixins.scss
---- node-red-src/editor/sass/mixins.scss	2017-09-27 10:53:14.598981432 +0000
+--- node-red-src/editor/sass/mixins.scss	2017-09-27 12:15:27.197346622 +0000
 +++ node-red-src_ttb/editor/sass/mixins.scss	2017-09-26 15:24:23.881021300 +0000
 @@ -224,5 +224,4 @@
      bottom: 0;
@@ -3614,7 +3614,7 @@ diff -ruN node-red-src/editor/sass/progressbar.scss node-red-src_ttb/editor/sass
 +}
 \ No newline at end of file
 diff -ruN node-red-src/editor/sass/style.scss node-red-src_ttb/editor/sass/style.scss
---- node-red-src/editor/sass/style.scss	2017-09-27 10:53:14.598981432 +0000
+--- node-red-src/editor/sass/style.scss	2017-09-27 12:15:27.197346622 +0000
 +++ node-red-src_ttb/editor/sass/style.scss	2017-09-26 15:24:23.917840700 +0000
 @@ -59,6 +59,8 @@
  
@@ -3626,7 +3626,7 @@ diff -ruN node-red-src/editor/sass/style.scss node-red-src_ttb/editor/sass/style
  
  body {
 diff -ruN node-red-src/editor/templates/index.mst node-red-src_ttb/editor/templates/index.mst
---- node-red-src/editor/templates/index.mst	2017-09-27 10:53:14.598981432 +0000
+--- node-red-src/editor/templates/index.mst	2017-09-27 12:15:27.197346622 +0000
 +++ node-red-src_ttb/editor/templates/index.mst	2017-09-26 15:24:27.544595400 +0000
 @@ -36,7 +36,13 @@
  </head>
@@ -13491,7 +13491,7 @@ diff -ruN node-red-src/editor/vendor/jquery/1.10.2.js node-red-src_ttb/editor/ve
 +})( window );
 \ No newline at end of file
 diff -ruN node-red-src/editor/vendor/jsonata/formatter.js node-red-src_ttb/editor/vendor/jsonata/formatter.js
---- node-red-src/editor/vendor/jsonata/formatter.js	2017-09-27 10:53:14.688980855 +0000
+--- node-red-src/editor/vendor/jsonata/formatter.js	2017-09-27 12:15:27.287346044 +0000
 +++ node-red-src_ttb/editor/vendor/jsonata/formatter.js	2017-09-26 15:24:25.882342000 +0000
 @@ -128,8 +128,6 @@
          '$map':{ args:[ 'array', 'function' ]},
@@ -13503,7 +13503,7 @@ diff -ruN node-red-src/editor/vendor/jsonata/formatter.js node-red-src_ttb/edito
          '$not':{ args:[ 'arg' ]},
          '$now':{ args:[  ]},
 diff -ruN node-red-src/Gruntfile.js node-red-src_ttb/Gruntfile.js
---- node-red-src/Gruntfile.js	2017-09-27 10:53:14.548981752 +0000
+--- node-red-src/Gruntfile.js	2017-09-27 12:15:27.147346942 +0000
 +++ node-red-src_ttb/Gruntfile.js	2017-09-27 10:47:49.123772746 +0000
 @@ -110,6 +110,7 @@
                      // Ensure editor source files are concatenated in
@@ -13966,7 +13966,7 @@ diff -ruN node-red-src/install_dependencies.sh node-red-src_ttb/install_dependen
 +	-b "wifi-util" \
 +	-c "af1150537a99f180ddfbf36c59027e3c2a37b58a"
 diff -ruN node-red-src/nodes/core/core/20-inject.html node-red-src_ttb/nodes/core/core/20-inject.html
---- node-red-src/nodes/core/core/20-inject.html	2017-09-27 10:53:14.688980855 +0000
+--- node-red-src/nodes/core/core/20-inject.html	2017-09-27 12:15:27.287346044 +0000
 +++ node-red-src_ttb/nodes/core/core/20-inject.html	2017-09-26 15:24:29.448768300 +0000
 @@ -181,7 +181,7 @@
              topic: {value:""},
@@ -13978,7 +13978,7 @@ diff -ruN node-red-src/nodes/core/core/20-inject.html node-red-src_ttb/nodes/cor
              once: {value:false}
          },
 diff -ruN node-red-src/nodes/core/core/75-exec.html node-red-src_ttb/nodes/core/core/75-exec.html
---- node-red-src/nodes/core/core/75-exec.html	2017-09-27 10:53:14.698980790 +0000
+--- node-red-src/nodes/core/core/75-exec.html	2017-09-27 12:15:27.297345980 +0000
 +++ node-red-src_ttb/nodes/core/core/75-exec.html	2017-09-26 15:24:29.327430500 +0000
 @@ -42,8 +42,7 @@
      </div>
@@ -13991,7 +13991,7 @@ diff -ruN node-red-src/nodes/core/core/75-exec.html node-red-src_ttb/nodes/core/
      <div class="form-row">
          <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="common.label.name"></span></label>
 diff -ruN node-red-src/nodes/core/core/75-exec.js node-red-src_ttb/nodes/core/core/75-exec.js
---- node-red-src/nodes/core/core/75-exec.js	2017-09-27 10:53:14.698980790 +0000
+--- node-red-src/nodes/core/core/75-exec.js	2017-09-27 12:15:27.297345980 +0000
 +++ node-red-src_ttb/nodes/core/core/75-exec.js	2017-09-26 15:24:29.398638900 +0000
 @@ -73,51 +73,56 @@
                      var cmd = arg.shift();
@@ -14168,7 +14168,7 @@ diff -ruN node-red-src/nodes/core/core/75-exec.js node-red-src_ttb/nodes/core/co
              }
          });
 diff -ruN node-red-src/nodes/core/core/80-function.html node-red-src_ttb/nodes/core/core/80-function.html
---- node-red-src/nodes/core/core/80-function.html	2017-09-27 10:53:14.698980790 +0000
+--- node-red-src/nodes/core/core/80-function.html	2017-09-27 12:15:27.297345980 +0000
 +++ node-red-src_ttb/nodes/core/core/80-function.html	1970-01-01 00:00:00.000000000 +0000
 @@ -1,145 +0,0 @@
 -
@@ -14317,7 +14317,7 @@ diff -ruN node-red-src/nodes/core/core/80-function.html node-red-src_ttb/nodes/c
 -    });
 -</script>
 diff -ruN node-red-src/nodes/core/core/80-function.js node-red-src_ttb/nodes/core/core/80-function.js
---- node-red-src/nodes/core/core/80-function.js	2017-09-27 10:53:14.698980790 +0000
+--- node-red-src/nodes/core/core/80-function.js	2017-09-27 12:15:27.297345980 +0000
 +++ node-red-src_ttb/nodes/core/core/80-function.js	1970-01-01 00:00:00.000000000 +0000
 @@ -1,256 +0,0 @@
 -/**
@@ -14577,7 +14577,7 @@ diff -ruN node-red-src/nodes/core/core/80-function.js node-red-src_ttb/nodes/cor
 -    RED.library.register("functions");
 -}
 diff -ruN node-red-src/nodes/core/core/80-template.html node-red-src_ttb/nodes/core/core/80-template.html
---- node-red-src/nodes/core/core/80-template.html	2017-09-27 10:53:14.698980790 +0000
+--- node-red-src/nodes/core/core/80-template.html	2017-09-27 12:15:27.297345980 +0000
 +++ node-red-src_ttb/nodes/core/core/80-template.html	2017-09-26 15:24:29.481826700 +0000
 @@ -30,7 +30,7 @@
                  <option value="css">CSS</option>
@@ -14589,7 +14589,7 @@ diff -ruN node-red-src/nodes/core/core/80-template.html node-red-src_ttb/nodes/c
          </div>
      </div>
 diff -ruN node-red-src/nodes/core/core/80-template.js node-red-src_ttb/nodes/core/core/80-template.js
---- node-red-src/nodes/core/core/80-template.js	2017-09-27 10:53:14.698980790 +0000
+--- node-red-src/nodes/core/core/80-template.js	2017-09-27 12:15:27.297345980 +0000
 +++ node-red-src_ttb/nodes/core/core/80-template.js	2017-09-26 15:24:29.706470500 +0000
 @@ -22,10 +22,9 @@
       * Custom Mustache Context capable to resolve message property and node
@@ -14632,7 +14632,7 @@ diff -ruN node-red-src/nodes/core/core/80-template.js node-red-src_ttb/nodes/cor
                      value = node.template;
                  }
 diff -ruN node-red-src/nodes/core/core/89-delay.html node-red-src_ttb/nodes/core/core/89-delay.html
---- node-red-src/nodes/core/core/89-delay.html	2017-09-27 10:53:14.698980790 +0000
+--- node-red-src/nodes/core/core/89-delay.html	2017-09-27 12:15:27.297345980 +0000
 +++ node-red-src_ttb/nodes/core/core/89-delay.html	2017-09-26 15:24:29.475809500 +0000
 @@ -46,7 +46,7 @@
          <div id="random-details" class="form-row">
@@ -14662,7 +14662,7 @@ diff -ruN node-red-src/nodes/core/core/89-delay.html node-red-src_ttb/nodes/core
              drop: {value:false}
          },
 diff -ruN node-red-src/nodes/core/core/89-delay.js node-red-src_ttb/nodes/core/core/89-delay.js
---- node-red-src/nodes/core/core/89-delay.js	2017-09-27 10:53:14.698980790 +0000
+--- node-red-src/nodes/core/core/89-delay.js	2017-09-27 12:15:27.297345980 +0000
 +++ node-red-src_ttb/nodes/core/core/89-delay.js	2017-09-26 15:24:29.653303900 +0000
 @@ -171,7 +171,6 @@
                  }
@@ -14673,7 +14673,7 @@ diff -ruN node-red-src/nodes/core/core/89-delay.js node-red-src_ttb/nodes/core/c
                      node.status({text:"reset"});
                  }
 diff -ruN node-red-src/nodes/core/core/lib/debug/debug-utils.js node-red-src_ttb/nodes/core/core/lib/debug/debug-utils.js
---- node-red-src/nodes/core/core/lib/debug/debug-utils.js	2017-09-27 10:53:14.698980790 +0000
+--- node-red-src/nodes/core/core/lib/debug/debug-utils.js	2017-09-27 12:15:27.297345980 +0000
 +++ node-red-src_ttb/nodes/core/core/lib/debug/debug-utils.js	2017-09-26 15:24:29.522433200 +0000
 @@ -41,14 +41,14 @@
          var content = $("<div>").css({"position":"relative","height":"100%"});
@@ -14718,7 +14718,7 @@ diff -ruN node-red-src/nodes/core/core/lib/debug/debug-utils.js node-red-src_ttb
          debugMessage.appendTo(el);
          // NOTE: relying on function error to have a "type" that all other msgs don't
 diff -ruN node-red-src/nodes/core/io/10-mqtt.html node-red-src_ttb/nodes/core/io/10-mqtt.html
---- node-red-src/nodes/core/io/10-mqtt.html	2017-09-27 10:53:14.708980726 +0000
+--- node-red-src/nodes/core/io/10-mqtt.html	2017-09-27 12:15:27.307345916 +0000
 +++ node-red-src_ttb/nodes/core/io/10-mqtt.html	2017-09-26 15:24:28.794654700 +0000
 @@ -166,18 +166,14 @@
  
@@ -14769,7 +14769,7 @@ diff -ruN node-red-src/nodes/core/io/10-mqtt.html node-red-src_ttb/nodes/core/io
          oneditprepare: function () {
              var tabs = RED.tabs.create({
 diff -ruN node-red-src/nodes/core/io/21-httpin.html node-red-src_ttb/nodes/core/io/21-httpin.html
---- node-red-src/nodes/core/io/21-httpin.html	2017-09-27 10:53:14.708980726 +0000
+--- node-red-src/nodes/core/io/21-httpin.html	2017-09-27 12:15:27.307345916 +0000
 +++ node-red-src_ttb/nodes/core/io/21-httpin.html	2017-09-26 15:24:28.436613800 +0000
 @@ -213,7 +213,7 @@
      var headerTypes = [
@@ -14790,7 +14790,7 @@ diff -ruN node-red-src/nodes/core/io/21-httpin.html node-red-src_ttb/nodes/core/
  
      RED.nodes.registerType('http response',{
 diff -ruN node-red-src/nodes/core/io/31-tcpin.html node-red-src_ttb/nodes/core/io/31-tcpin.html
---- node-red-src/nodes/core/io/31-tcpin.html	2017-09-27 10:53:14.708980726 +0000
+--- node-red-src/nodes/core/io/31-tcpin.html	2017-09-27 12:15:27.307345916 +0000
 +++ node-red-src_ttb/nodes/core/io/31-tcpin.html	2017-09-26 15:24:28.502944000 +0000
 @@ -212,12 +212,11 @@
      <div class="form-row">
@@ -14826,7 +14826,7 @@ diff -ruN node-red-src/nodes/core/io/31-tcpin.html node-red-src_ttb/nodes/core/i
                  else {
                      if (previous != "sit") { $("#node-input-splitc").val(" "); }
 diff -ruN node-red-src/nodes/core/locales/en-US/messages.json node-red-src_ttb/nodes/core/locales/en-US/messages.json
---- node-red-src/nodes/core/locales/en-US/messages.json	2017-09-27 10:53:14.708980726 +0000
+--- node-red-src/nodes/core/locales/en-US/messages.json	2017-09-27 12:15:27.317345852 +0000
 +++ node-red-src_ttb/nodes/core/locales/en-US/messages.json	2017-09-26 15:24:27.862505900 +0000
 @@ -110,14 +110,11 @@
              "deactivated": "Successfully deactivated: __label__"
@@ -15519,7 +15519,7 @@ diff -ruN node-red-src/nodes/core/locales/fr-FR/messages.json node-red-src_ttb/n
 +    }
 +}
 diff -ruN node-red-src/nodes/core/locales/ja/messages.json node-red-src_ttb/nodes/core/locales/ja/messages.json
---- node-red-src/nodes/core/locales/ja/messages.json	2017-09-27 10:53:14.718980662 +0000
+--- node-red-src/nodes/core/locales/ja/messages.json	2017-09-27 12:15:27.317345852 +0000
 +++ node-red-src_ttb/nodes/core/locales/ja/messages.json	2017-09-26 15:24:27.877684600 +0000
 @@ -90,7 +90,7 @@
              "node": "ノード",
@@ -15639,7 +15639,7 @@ diff -ruN node-red-src/nodes/core/locales/ja/messages.json node-red-src_ttb/node
          },
          "action": {
 diff -ruN node-red-src/nodes/core/logic/10-switch.html node-red-src_ttb/nodes/core/logic/10-switch.html
---- node-red-src/nodes/core/logic/10-switch.html	2017-09-27 10:53:14.718980662 +0000
+--- node-red-src/nodes/core/logic/10-switch.html	2017-09-27 12:15:27.317345852 +0000
 +++ node-red-src_ttb/nodes/core/logic/10-switch.html	2017-09-26 15:24:30.130390100 +0000
 @@ -199,7 +199,6 @@
                          } else if (type === "btwn") {
@@ -15650,7 +15650,7 @@ diff -ruN node-red-src/nodes/core/logic/10-switch.html node-red-src_ttb/nodes/co
                              row2.hide();
                              row3.hide();
 diff -ruN node-red-src/nodes/core/logic/17-split.js node-red-src_ttb/nodes/core/logic/17-split.js
---- node-red-src/nodes/core/logic/17-split.js	2017-09-27 10:53:14.718980662 +0000
+--- node-red-src/nodes/core/logic/17-split.js	2017-09-27 12:15:27.317345852 +0000
 +++ node-red-src_ttb/nodes/core/logic/17-split.js	2017-09-26 15:24:30.228619100 +0000
 @@ -457,7 +457,7 @@
                  group.msg = msg;
@@ -15662,7 +15662,7 @@ diff -ruN node-red-src/nodes/core/logic/17-split.js node-red-src_ttb/nodes/core/
                  }
              } catch(err) {
 diff -ruN node-red-src/nodes/core/storage/50-file.html node-red-src_ttb/nodes/core/storage/50-file.html
---- node-red-src/nodes/core/storage/50-file.html	2017-09-27 10:53:14.718980662 +0000
+--- node-red-src/nodes/core/storage/50-file.html	2017-09-27 12:15:27.327345788 +0000
 +++ node-red-src_ttb/nodes/core/storage/50-file.html	2017-09-26 15:24:28.053707700 +0000
 @@ -141,7 +141,6 @@
              });
@@ -18285,15 +18285,15 @@ diff -ruN node-red-src/otherSystemFlow/TaskManager/flows.json.backup node-red-sr
 +]
 \ No newline at end of file
 diff -ruN node-red-src/package.json node-red-src_ttb/package.json
---- node-red-src/package.json	2017-09-27 10:53:14.718980662 +0000
-+++ node-red-src_ttb/package.json	2017-09-27 10:46:52.707037956 +0000
+--- node-red-src/package.json	2017-09-27 12:15:27.327345788 +0000
++++ node-red-src_ttb/package.json	2017-09-27 12:11:33.931154895 +0000
 @@ -12,7 +12,8 @@
      "scripts"      : {
          "start": "node red.js",
          "test": "grunt",
 -        "build": "grunt build"
 +        "build": "grunt build",
-+        "postinstall": "./install_dependencies.sh"
++        "install_dependencies": "./install_dependencies.sh"
      },
      "bin"          : {
          "node-red": "./red.js",
@@ -18337,7 +18337,7 @@ diff -ruN node-red-src/package.json node-red-src_ttb/package.json
      "devDependencies": {
          "grunt": "~1.0.1",
 diff -ruN node-red-src/red/api/auth/index.js node-red-src_ttb/red/api/auth/index.js
---- node-red-src/red/api/auth/index.js	2017-09-27 10:53:14.728980598 +0000
+--- node-red-src/red/api/auth/index.js	2017-09-27 12:15:27.327345788 +0000
 +++ node-red-src_ttb/red/api/auth/index.js	2017-09-26 15:24:30.924250500 +0000
 @@ -84,7 +84,7 @@
          if (settings.adminAuth.type === "credentials") {
@@ -18349,7 +18349,7 @@ diff -ruN node-red-src/red/api/auth/index.js node-red-src_ttb/red/api/auth/index
          } else if (settings.adminAuth.type === "strategy") {
              response = {
 diff -ruN node-red-src/red/api/info.js node-red-src_ttb/red/api/info.js
---- node-red-src/red/api/info.js	2017-09-27 10:53:14.728980598 +0000
+--- node-red-src/red/api/info.js	2017-09-27 12:15:27.327345788 +0000
 +++ node-red-src_ttb/red/api/info.js	2017-09-26 15:24:31.194253000 +0000
 @@ -49,8 +49,20 @@
              safeSettings.editorTheme.palette.editable = false;
@@ -18373,7 +18373,7 @@ diff -ruN node-red-src/red/api/info.js node-red-src_ttb/red/api/info.js
      }
  }
 diff -ruN node-red-src/red/api/locales/en-US/editor.json node-red-src_ttb/red/api/locales/en-US/editor.json
---- node-red-src/red/api/locales/en-US/editor.json	2017-09-27 10:53:14.728980598 +0000
+--- node-red-src/red/api/locales/en-US/editor.json	2017-09-27 12:15:27.327345788 +0000
 +++ node-red-src_ttb/red/api/locales/en-US/editor.json	2017-09-26 15:24:31.020167300 +0000
 @@ -10,7 +10,8 @@
              "load": "Load",
@@ -18689,7 +18689,7 @@ diff -ruN node-red-src/red/api/locales/en-US/editor.json node-red-src_ttb/red/ap
      }
  }
 diff -ruN node-red-src/red/api/locales/en-US/jsonata.json node-red-src_ttb/red/api/locales/en-US/jsonata.json
---- node-red-src/red/api/locales/en-US/jsonata.json	2017-09-27 10:53:14.728980598 +0000
+--- node-red-src/red/api/locales/en-US/jsonata.json	2017-09-27 12:15:27.327345788 +0000
 +++ node-red-src_ttb/red/api/locales/en-US/jsonata.json	2017-09-26 15:24:31.015014100 +0000
 @@ -95,10 +95,6 @@
          "args":"",
@@ -19072,7 +19072,7 @@ diff -ruN node-red-src/red/api/locales/fr-FR/editor.json node-red-src_ttb/red/ap
 +    }
 +}
 diff -ruN node-red-src/red/api/locales/ja/editor.json node-red-src_ttb/red/api/locales/ja/editor.json
---- node-red-src/red/api/locales/ja/editor.json	2017-09-27 10:53:14.728980598 +0000
+--- node-red-src/red/api/locales/ja/editor.json	2017-09-27 12:15:27.327345788 +0000
 +++ node-red-src_ttb/red/api/locales/ja/editor.json	2017-09-26 15:24:31.059823600 +0000
 @@ -29,7 +29,6 @@
          "label": {
@@ -19248,7 +19248,7 @@ diff -ruN node-red-src/red/api/locales/ja/editor.json node-red-src_ttb/red/api/l
          }
      },
 diff -ruN node-red-src/red/api/locales.js node-red-src_ttb/red/api/locales.js
---- node-red-src/red/api/locales.js	2017-09-27 10:53:14.728980598 +0000
+--- node-red-src/red/api/locales.js	2017-09-27 12:15:27.327345788 +0000
 +++ node-red-src_ttb/red/api/locales.js	2017-09-26 15:24:31.216131600 +0000
 @@ -33,9 +33,20 @@
      },
@@ -19272,7 +19272,7 @@ diff -ruN node-red-src/red/api/locales.js node-red-src_ttb/red/api/locales.js
          // Trigger a load from disk of the language if it is not the default
          i18n.i.setLng(lang, function(){
 diff -ruN node-red-src/red/api/theme.js node-red-src_ttb/red/api/theme.js
---- node-red-src/red/api/theme.js	2017-09-27 10:53:14.728980598 +0000
+--- node-red-src/red/api/theme.js	2017-09-27 12:15:27.337345724 +0000
 +++ node-red-src_ttb/red/api/theme.js	2017-09-26 15:24:31.217975700 +0000
 @@ -31,9 +31,52 @@
          image: "red/images/node-red.png"
@@ -19331,7 +19331,7 @@ diff -ruN node-red-src/red/api/theme.js node-red-src_ttb/red/api/theme.js
  };
  
 diff -ruN node-red-src/red/runtime/index.js node-red-src_ttb/red/runtime/index.js
---- node-red-src/red/runtime/index.js	2017-09-27 10:53:14.738980534 +0000
+--- node-red-src/red/runtime/index.js	2017-09-27 12:15:27.337345724 +0000
 +++ node-red-src_ttb/red/runtime/index.js	2017-09-26 15:24:30.301745100 +0000
 @@ -56,6 +56,7 @@
  
@@ -19388,7 +19388,7 @@ diff -ruN node-red-src/red/runtime/index.js node-red-src_ttb/red/runtime/index.j
                  started = true;
              }).otherwise(function(err) {
 diff -ruN node-red-src/red/runtime/locales/en-US/runtime.json node-red-src_ttb/red/runtime/locales/en-US/runtime.json
---- node-red-src/red/runtime/locales/en-US/runtime.json	2017-09-27 10:53:14.738980534 +0000
+--- node-red-src/red/runtime/locales/en-US/runtime.json	2017-09-27 12:15:27.337345724 +0000
 +++ node-red-src_ttb/red/runtime/locales/en-US/runtime.json	2017-09-26 15:24:30.303720800 +0000
 @@ -4,8 +4,7 @@
          "version": "__component__ version: __version__",
@@ -19401,7 +19401,7 @@ diff -ruN node-red-src/red/runtime/locales/en-US/runtime.json node-red-src_ttb/r
      },
  
 diff -ruN node-red-src/red/runtime/nodes/flows/index.js node-red-src_ttb/red/runtime/nodes/flows/index.js
---- node-red-src/red/runtime/nodes/flows/index.js	2017-09-27 10:53:14.738980534 +0000
+--- node-red-src/red/runtime/nodes/flows/index.js	2017-09-27 12:15:27.337345724 +0000
 +++ node-red-src_ttb/red/runtime/nodes/flows/index.js	2017-09-26 15:24:30.685250600 +0000
 @@ -31,6 +31,7 @@
  
@@ -19428,7 +19428,7 @@ diff -ruN node-red-src/red/runtime/nodes/flows/index.js node-red-src_ttb/red/run
          added:[],
          changed:[],
 diff -ruN node-red-src/red/runtime/nodes/index.js node-red-src_ttb/red/runtime/nodes/index.js
---- node-red-src/red/runtime/nodes/index.js	2017-09-27 10:53:14.738980534 +0000
+--- node-red-src/red/runtime/nodes/index.js	2017-09-27 12:15:27.337345724 +0000
 +++ node-red-src_ttb/red/runtime/nodes/index.js	2017-09-26 15:24:30.534306400 +0000
 @@ -31,6 +31,7 @@
  var events = require("../events");
@@ -19468,7 +19468,7 @@ diff -ruN node-red-src/red/runtime/nodes/index.js node-red-src_ttb/red/runtime/n
 +    addNodeToClients: addNodeToClients
  };
 diff -ruN node-red-src/red/runtime/nodes/Node.js node-red-src_ttb/red/runtime/nodes/Node.js
---- node-red-src/red/runtime/nodes/Node.js	2017-09-27 10:53:14.738980534 +0000
+--- node-red-src/red/runtime/nodes/Node.js	2017-09-27 12:15:27.337345724 +0000
 +++ node-red-src_ttb/red/runtime/nodes/Node.js	2017-09-26 15:24:30.531221300 +0000
 @@ -26,6 +26,9 @@
  function Node(n) {
@@ -19481,7 +19481,7 @@ diff -ruN node-red-src/red/runtime/nodes/Node.js node-red-src_ttb/red/runtime/no
      this._closeCallbacks = [];
  
 diff -ruN node-red-src/red/runtime/nodes/registry/loader.js node-red-src_ttb/red/runtime/nodes/registry/loader.js
---- node-red-src/red/runtime/nodes/registry/loader.js	2017-09-27 10:53:14.738980534 +0000
+--- node-red-src/red/runtime/nodes/registry/loader.js	2017-09-27 12:15:27.337345724 +0000
 +++ node-red-src_ttb/red/runtime/nodes/registry/loader.js	2017-09-26 15:24:30.562035000 +0000
 @@ -72,7 +72,7 @@
          util: runtime.util,
@@ -19493,7 +19493,7 @@ diff -ruN node-red-src/red/runtime/nodes/registry/loader.js node-red-src_ttb/red
          runtime.nodes.registerType(node.id,type,constructor,opts);
      }
 diff -ruN node-red-src/red/runtime/nodes/registry/localfilesystem.js node-red-src_ttb/red/runtime/nodes/registry/localfilesystem.js
---- node-red-src/red/runtime/nodes/registry/localfilesystem.js	2017-09-27 10:53:14.738980534 +0000
+--- node-red-src/red/runtime/nodes/registry/localfilesystem.js	2017-09-27 12:15:27.337345724 +0000
 +++ node-red-src_ttb/red/runtime/nodes/registry/localfilesystem.js	2017-09-26 15:24:30.605881800 +0000
 @@ -98,6 +98,8 @@
                  if (info) {
@@ -19505,7 +19505,7 @@ diff -ruN node-red-src/red/runtime/nodes/registry/localfilesystem.js node-red-sr
          } else if (stats.isDirectory()) {
              // Ignore /.dirs/, /lib/ /node_modules/
 diff -ruN node-red-src/red/runtime/storage/localfilesystem.js node-red-src_ttb/red/runtime/storage/localfilesystem.js
---- node-red-src/red/runtime/storage/localfilesystem.js	2017-09-27 10:53:14.738980534 +0000
+--- node-red-src/red/runtime/storage/localfilesystem.js	2017-09-27 12:15:27.347345660 +0000
 +++ node-red-src_ttb/red/runtime/storage/localfilesystem.js	2017-09-26 15:24:30.358610800 +0000
 @@ -15,6 +15,7 @@
   **/
@@ -19844,7 +19844,7 @@ diff -ruN node-red-src/red/runtime/storage/localfilesystem.js node-red-src_ttb/r
  };
  
 diff -ruN node-red-src/red/runtime/util.js node-red-src_ttb/red/runtime/util.js
---- node-red-src/red/runtime/util.js	2017-09-27 10:53:14.738980534 +0000
+--- node-red-src/red/runtime/util.js	2017-09-27 12:15:27.347345660 +0000
 +++ node-red-src_ttb/red/runtime/util.js	2017-09-26 15:24:30.775751400 +0000
 @@ -338,7 +338,7 @@
          return node.context().flow.get(val);
@@ -19856,7 +19856,7 @@ diff -ruN node-red-src/red/runtime/util.js node-red-src_ttb/red/runtime/util.js
      expr._legacyMode = /(^|[^a-zA-Z0-9_'"])msg([^a-zA-Z0-9_'"]|$)/.test(value);
      return expr;
 diff -ruN node-red-src/settings.js node-red-src_ttb/settings.js
---- node-red-src/settings.js	2017-09-27 10:53:14.738980534 +0000
+--- node-red-src/settings.js	2017-09-27 12:15:27.347345660 +0000
 +++ node-red-src_ttb/settings.js	2017-09-26 15:24:31.286209300 +0000
 @@ -19,8 +19,9 @@
  //var fs = require("fs");
@@ -19955,7 +19955,7 @@ diff -ruN node-red-src/settings.js node-red-src_ttb/settings.js
  
      // Configure the logging output
 diff -ruN node-red-src/test/nodes/core/core/80-template_spec.js node-red-src_ttb/test/nodes/core/core/80-template_spec.js
---- node-red-src/test/nodes/core/core/80-template_spec.js	2017-09-27 10:53:14.748980470 +0000
+--- node-red-src/test/nodes/core/core/80-template_spec.js	2017-09-27 12:15:27.347345660 +0000
 +++ node-red-src_ttb/test/nodes/core/core/80-template_spec.js	2017-09-26 15:24:20.882085200 +0000
 @@ -88,18 +88,6 @@
          });

@@ -30,6 +30,7 @@ installNodeRed(){
 		mv $NRS_DIRECTORY/.dist/node-red* $NR_DIRECTORY
 		cd $NR_DIRECTORY
 		npm install --only=prod --unsafe-perm --legacy-bundling
+		npm run install_dependencies
 	fi
 }
 
